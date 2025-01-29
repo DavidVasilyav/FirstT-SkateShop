@@ -21,7 +21,7 @@ const getDesignTokens = (mode: any) => ({
           primary: { main: "#ffff", secondary: "#9d52db", },
           text: {
             primary: "#0f0e17",
-            secondary: "#9d52db",
+            secondary: "#c395e8",
             background: "#ffff",
             notActive: "#0000003e"
           },
@@ -30,7 +30,7 @@ const getDesignTokens = (mode: any) => ({
         primary: { main: "#0f0e17", secondary: "#9d52db", },
         text: {
             primary: "#ffff",
-            secondary: "#9d52db",
+            secondary: "#c395e8",
             background: "#292828",
             notActive: "#c395e875"
 

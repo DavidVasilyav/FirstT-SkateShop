@@ -12,10 +12,10 @@ import ImageGalleryHome from "../../components/homePageImageGallery/ImageGallery
 import logosForHomePage from "@/../public/img/homeGallery/logosForHomePage.png";
 import skateVideo from "@/../videos/all_skater.mp4json";
 import HomePageCategories from "../../components/homePageCategories/HomePageCategories";
-import InstagramIcon from '@mui/icons-material/Instagram';
-import WhatsAppIcon from '@mui/icons-material/WhatsApp';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import SkateboardingIcon from '@mui/icons-material/Skateboarding';
+import InstagramIcon from "@mui/icons-material/Instagram";
+import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import SkateboardingIcon from "@mui/icons-material/Skateboarding";
 export default function Home() {
   const [scrolling, setScrolling] = useState(0);
   const [showPants, setShowPants] = useState(false);
@@ -51,7 +51,6 @@ export default function Home() {
     },
     [showPants, showAccessories]
   );
-  
 
   useEffect(() => {
     checkIfIphone();
@@ -87,14 +86,13 @@ export default function Home() {
             width: { xs: "100%", sm: "100%" },
           }}
         >
-
           <Fade in={true} timeout={2000}>
             <Box
               sx={{
-                bgcolor: "#000000b9",
+                bgcolor: "#000000d5",
                 color: "#fffffe",
-                width: {xs: 'auto', sm: 550,},
-                height: 'auto',
+                width: { xs: "auto", sm: 550 },
+                height: "auto",
                 textAlign: "center",
                 display: "flex",
                 justifyContent: "center",
@@ -103,16 +101,15 @@ export default function Home() {
                 borderColor: "text.primary",
                 borderRadius: 2,
                 fontSize: 50,
-                m: 1
+                m: 1,
               }}
             >
               <Box sx={{ display: "flex", gap: 1 }}>
                 {/* <Box>Skate Shop</Box> */}
                 <Box sx={{ color: "#c395e8" }}>T</Box>
                 <Box>First</Box>
-
               </Box>
-          <SkateboardingIcon fontSize="large" />
+              <SkateboardingIcon fontSize="large" />
 
               {/* <TypeAnimation
               // sequence={[1000, "Time to build new Skateboard."]}
@@ -125,19 +122,34 @@ export default function Home() {
               }}
               cursor={false}
             /> */}
-          <Box sx={{ fontSize: {xs: 20, sm: 25}, color:'text.secondary'}}>
+              <Box
+                sx={{ fontSize: { xs: 20, sm: 25 }, color: "text.secondary" }}
+              >
+                ברוכים הבאים לחנות הסקייט החדשה בישראל מביאים לכם את החברות הכי
+                שוחטות שיש האתר יעלה בקרוב!
+              </Box>
+              <Box
+                              sx={{ mt:1 ,fontSize: { xs: 20, sm: 25 }, color: "#fffe" }}
 
-          ברוכים הבאים לחנות הסקייט החדשה בישראל עם כול החברות הכי שוחטות שיש האתר יעלה בקרוב... בזמן הזה תוכלו להתעדכן איתנו במלאי ולהזמין באינסטגרם!
-          </Box>
-          <Box>
-            <Link href='https://www.instagram.com/firstt.sk8/'>
-          <InstagramIcon sx={{color: 'white', fontSize: {xs: 35, sm: 50}, transition: '0.5s', ":hover": {fontSize:{xs: 40, sm: 55}, color: '#c395e8'}}} />
-            </Link>
-          </Box>
+              >בזמן הזה תוכלו להתעדכן איתנו במלאי ולהזמין באינסטגרם:</Box>
+              <Box>
+                <Link href="https://www.instagram.com/firstt.sk8/">
+                  <InstagramIcon
+                    sx={{
+                      color: "white",
+                      fontSize: { xs: 35, sm: 50 },
+                      transition: "0.5s",
+                      ":hover": {
+                        fontSize: { xs: 40, sm: 55 },
+                        color: "#c395e8",
+                      },
+                    }}
+                  />
+                </Link>
+              </Box>
             </Box>
           </Fade>
-          <Box>
-          </Box>
+          <Box></Box>
 
           {/* <Box
           sx={{
@@ -155,11 +167,20 @@ export default function Home() {
           </Box>
         </Box>
 
-        <Box sx={{ width: {xs: 'auto', sm: '80%'}, height: "auto", position: "relative", bgcolor:'primary.secondary', display:'flex', flexDirection:'column', alignItems:'center' }}>
-
+        <Box
+          sx={{
+            width: { xs: "auto", sm: "80%" },
+            height: "auto",
+            position: "relative",
+            bgcolor: "primary.secondary",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
           <Image
             alt="mainLogos"
-            src={'/img/homeGallery/logosForHomePage.png'}
+            src={"/img/homeGallery/logosForHomePage.png"}
             width={500}
             height={500}
             sizes="100vw"
@@ -168,8 +189,7 @@ export default function Home() {
               height: "auto",
             }}
           />
-        <ImageGalleryHome />
-
+          <ImageGalleryHome />
         </Box>
 
         {/* <Box sx={{ fontSize: 28 }}>Time to Skate</Box> */}
@@ -187,7 +207,6 @@ export default function Home() {
           <Box sx={{ fontSize: 28 }}>בנה את הסקייט שלך</Box>
         </Box> */}
 
-
         {/* <Box
           sx={{
             display: "flex",
@@ -199,7 +218,6 @@ export default function Home() {
         <HomePageCategories />
         
         </Box> */}
-
       </Box>
     </>
   );
