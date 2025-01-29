@@ -1,0 +1,48 @@
+{
+  "compilerOptions": {
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    },
+    "target": "ES2017"
+  },
+  "include": [
+    "video.d.ts",
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "style/mainColors/ThemeColors.jsx",
+    "lib/store.js",
+    "src/app/providers.jsx",
+    "components/globalBtn/GlobalBtn.jsx",
+    "src/app/male/page.jsx",
+    "src/app/api/getItemsFromBoard.js",
+    "src/app/api/userRequest.js"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

@@ -1,0 +1,87 @@
+.shirts_main_container {
+    background-image: url(../../public/img/backgroundShirts.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    /* background-attachment: fixed; */
+}
+.pants_main_container {
+    background-image: url(../../public/img/backgroundPants.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.accessories_main_container {
+    background-image: url(../../public/img/backgroundAccessories.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    /* background-attachment: fixed; */
+}
+.shoes_main_container {
+    background-image: url(../../public/img/backgroundShoes.jpg);
+    background-position: -500px -500px;
+    background-repeat: no-repeat;
+    /* background-attachment: fixed; */
+}
+.shirts_woman {
+    background-image: url(../../public/img/woman/womanShirts.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* background-attachment: fixed; */
+}
+.pants_woman {
+    background-image: url(../../public/img/woman/womanPants.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* background-attachment: fixed; */
+}
+.shoes_woman {
+    background-image: url(../../public/img/woman/womanShoes.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    /* background-attachment: fixed; */
+}
+
+.accessories_woman{ 
+    background-image: url(../../public/img/backgroundAccessories.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    /* background-attachment: fixed; */
+}
+.shirts_man {
+    background-image: url(../../public/img/man/manShirts.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    /* background-attachment: fixed; */
+    background-size: cover;
+
+}
+.pants_man {
+    background-image: url(../../public/img/man/manPants.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    /* background-attachment: fixed; */
+    background-size: cover;
+
+}
+
+.accessories_man{ 
+    background-image: url(../../public/img/man/manAccessories.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    /* background-attachment: fixed; */
+}
+
+.shoes_man {
+    background-image: url(../../public/img/man/manShoes.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}

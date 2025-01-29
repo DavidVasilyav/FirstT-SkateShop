@@ -1,0 +1,10 @@
+.item_image {
+    width: 100%;
+    background-color: aqua;
+    position: relative;
+    background-image: url(../../public/img/woman/womanShirts2.jpeg);
+    background-position:center; background-repeat: no-repeat;
+    background-size: cover;
+}
+.filter {
+}

@@ -1,0 +1,58 @@
+.all_page{
+    background-color: #000;
+     /* background-image: url(../../public/img/homeGallery/Background.png); */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; 
+}
+.main_container {
+    background-image: url(../../public/img/backgroundMain.jpg);
+    background-image: url(../../public/img/SkateBoard/SkateBackground.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+.shirts {
+    background-image: url(../../public/img/backgroundShirts.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+.pants {
+    background-image: url(../../public/img/backgroundPants.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.accessories{ 
+    background-image: url(../../public/img/backgroundAccessories.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+.woman_box {
+    background-image: url(../../public/img/SkateBoard/SkateCategory.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: 2s;
+    /* box-sizing: border-box; */
+    /* border: 10px solid #f0e2e1; */
+}
+.man_box {
+    background: #000;
+    background-image: url(../../public/img/SkateBoard/accessories.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* box-sizing: border-box; */
+    /* border: 10px solid #f6efef; */
+    transition: 2s;
+
+}
+.a:hover + .b {
+    background: #ccc
+}
+

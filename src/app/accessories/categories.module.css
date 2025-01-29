@@ -1,0 +1,12 @@
+.categories_box {
+    border-radius: 50%;
+    background-image: url(../../../public/img/backgroundShoes.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+.images {
+    width: 200;
+    height: 200;
+    background-color: #000;
+}
