@@ -2,6 +2,7 @@
 import * as React from "react";
 import { useCallback, useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import MobileNavMenu from "./MobileNavMenu";
 import Box from "@mui/material/Box";
 import DarkLightBtn from "../../components/darkLightBtn";
 import Link from "next/link";
@@ -23,7 +24,7 @@ function Navbar() {
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
   const [hoverColor, setHoverColor] = useState("");
-  const [showBorder, setShowBorder] = useState('0');
+  const [showBorder, setShowBorder] = useState("0");
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
   };
@@ -42,10 +43,10 @@ function Navbar() {
     const { pageYOffset, scrollY } = window;
     // console.log(scrollY);
     if (scrollY > 60) {
-      setShowBorder('100%');
+      setShowBorder("100%");
     }
     if (scrollY < 50) {
-      setShowBorder('0');
+      setShowBorder("0");
     }
   }, []);
   useEffect(() => {
@@ -58,7 +59,6 @@ function Navbar() {
         position: "sticky",
         top: "0px",
         zIndex: 1,
-
       }}
     >
       <Box
@@ -68,7 +68,6 @@ function Navbar() {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          
         }}
       >
         <Box
@@ -82,13 +81,14 @@ function Navbar() {
             gap: 2,
           }}
         >
-          {/* <Box
+          <Box
             sx={{
-              display: { sm: "none" },
+              display: { xs: "block", sm: "none" },
             }}
           >
-            Menu
-          </Box> */}
+            123
+            {/* {MobileNavMenu('block')} */}
+          </Box>
           <Box
             sx={{
               display: { xs: "none", sm: "flex" },
@@ -173,6 +173,10 @@ function Navbar() {
           transitionTimingFunction: "ease-in-out",
         }}
       ></Box>
+      <Box>
+            {/* {MobileNavMenu('block')}  */}
+
+      </Box>
     </Box>
   );
 }

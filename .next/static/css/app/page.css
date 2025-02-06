@@ -79,7 +79,10 @@
   height: auto;
   max-height: 100vh;
 }
+.keen-slider{
+  border-radius: 5%;
 
+}
 .number-slide1 {
   background: rgb(64, 175, 255);
   background: linear-gradient(
@@ -140,6 +143,8 @@
 
 .navigation-wrapper {
   position: relative;
+  border-radius: 20%;
+
 }
 
 .dots {

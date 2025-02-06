@@ -201,7 +201,10 @@ export default function Home() {
             }}
           />
         </Box>
+        <Box>
+
         <ImageGalleryHome />
+        </Box>
 
         {/* <Box sx={{ fontSize: 28 }}>Time to Skate</Box> */}
         {/* <Box

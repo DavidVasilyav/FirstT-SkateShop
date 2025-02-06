@@ -37,7 +37,7 @@ export default function ImageGalleryHome() {
 
   return (
     <>
-    <Box sx={{width: '350px', pt: 5,}}>
+    <Box sx={{width: {xs:'320px', sm: '350px'}, pt: 5, borderRadius: '5%',}}>
 
       <div className="navigation-wrapper">
         <div ref={sliderRef} className="keen-slider">
