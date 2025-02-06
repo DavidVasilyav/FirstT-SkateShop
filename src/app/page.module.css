@@ -6,8 +6,7 @@
     background-size: cover; 
 }
 .main_container {
-    background-image: url(../../public/img/backgroundMain.jpg);
-    background-image: url(../../public/img/SkateBoard/SkateBackground.jpg);
+    /* background-image: url(../../public/img/SkateBoard/SkateBackground.jpg); */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

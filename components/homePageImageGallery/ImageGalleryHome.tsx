@@ -18,7 +18,7 @@ export default function ImageGalleryHome() {
   const [sliderRef, instanceRef] = useKeenSlider({
     initial: 0,
     rtl: true,
-    loop: true,
+    // loop: true,
     renderMode:'performance',
     slideChanged(slider) {
       setCurrentSlide(slider.track.details.rel)
@@ -51,19 +51,21 @@ export default function ImageGalleryHome() {
             <Arrow
               left
               onClick={(e) =>
-                e.stopPropagation() || instanceRef.current?.prev()
-              }
-              disabled={currentSlide === 0}
-            />
-
-            <Arrow
-              onClick={(e) =>
                 e.stopPropagation() || instanceRef.current?.next()
               }
               disabled={
                 currentSlide ===
                 instanceRef.current.track.details.slides.length - 1
               }
+            />
+
+            <Arrow
+              onClick={(e) =>
+                e.stopPropagation() || instanceRef.current?.prev()
+              }
+              disabled={currentSlide === 0}
+
+             
             />
           </>
         )}

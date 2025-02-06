@@ -8,6 +8,7 @@ import { Providers } from "./providers";
 import { ReduxProvider } from "../../lib/redux/ReduxProvider";
 import ScrollBtn from "../../components/scrollToTopBtn/ScrollBtn";
 import getCookies from "./api/getCookies";
+import DarkLightBtn from "../../components/darkLightBtn";
 getCookies()
 const inter = Merriweather({
   subsets: ['latin'],
@@ -40,8 +41,10 @@ export default async function RootLayout({
         <Navbar/> 
         <Box sx={{bgcolor:'primary.main'}}>
           {children}
-          <Footer />
+
+        <DarkLightBtn/>
         </Box>
+          <Footer /> 
           </body>
       </Providers>
       </ReduxProvider>

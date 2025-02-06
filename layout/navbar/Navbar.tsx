@@ -1,28 +1,29 @@
 "use client";
 import * as React from "react";
+import { useCallback, useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Box from "@mui/material/Box";
 import DarkLightBtn from "../../components/darkLightBtn";
 import Link from "next/link";
 import Image from "next/image";
-import mainLogo from '@/../public/img/Logo.png'
+import mainLogo from "@/../public/img/Logo.jpg";
 // const pages = ["Boards", "Accessories", "Info"];
-const pages = [{name : 'סקייטבורד', link: 'boards'}, {name: 'אביזרים', link: 'accessories'}]
+const pages = [
+  { name: "סקייטבורד", link: "boards" },
+  { name: "אביזרים", link: "accessories" },
+];
 const user = [
-  {name: 'הירשם', link : 'register'},
-  {name: 'התחבר', link : 'login'}
-]
+  { name: "הירשם", link: "register" },
+  { name: "התחבר", link: "login" },
+];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 function Navbar() {
-  const router = useRouter()
-  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
-    null
-  );
-  const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
-    null
-  );
-  const [hoverColor, setHoverColor] = React.useState("");
+  const router = useRouter();
+  const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
+  const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
+  const [hoverColor, setHoverColor] = useState("");
+  const [showBorder, setShowBorder] = useState('0');
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
   };
@@ -37,8 +38,29 @@ function Navbar() {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+  const onScroll = useCallback((event: any) => {
+    const { pageYOffset, scrollY } = window;
+    // console.log(scrollY);
+    if (scrollY > 60) {
+      setShowBorder('100%');
+    }
+    if (scrollY < 50) {
+      setShowBorder('0');
+    }
+  }, []);
+  useEffect(() => {
+    window.addEventListener("scroll", onScroll, { passive: true });
+  }, []);
 
   return (
+    <Box
+      sx={{
+        position: "sticky",
+        top: "0px",
+        zIndex: 1,
+
+      }}
+    >
       <Box
         sx={{
           backgroundColor: "primary.main",
@@ -46,9 +68,7 @@ function Navbar() {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          borderBottom: "3px solid",
-          borderColor: "text.primary",
-          position: "sticky", top: "0px",  zIndex: 1
+          
         }}
       >
         <Box
@@ -62,7 +82,6 @@ function Navbar() {
             gap: 2,
           }}
         >
-
           {/* <Box
             sx={{
               display: { sm: "none" },
@@ -80,58 +99,56 @@ function Navbar() {
               <>
                 <Link href={`/${page.link}`}>
                   <Box
-                  key={page.name}
+                    key={page.name}
                     sx={{
                       color: "text.primary",
                       transition: "0.5s",
-                      ':hover': {
-                        color:'text.secondary'
-                      }
+                      ":hover": {
+                        color: "text.secondary",
+                      },
                     }}
                   >
                     {page.name}
                   </Box>
-                  
                 </Link>
-                
               </>
-              
             ))}
-            
           </Box>
         </Box>
-        <Link href={"/"}>
-          <Box
-            sx={{
-              position: "relative",
-              width: 80,
-              height: 70,
-              bgcolor: "primary.main",
-            }}
-          >
-            <Image
-              alt="Logo"
-              src={mainLogo}
-              fill={true}
-              style={{ objectFit: "contain" }}
-            />
-          </Box>
-        </Link>
+
         <Box
           sx={{
             position: "absolute",
             left: 20,
             color: "text.primary",
+            display: "flex",
           }}
         >
           {/* Profile */}
-          <DarkLightBtn />
-          <Box sx={{
-            display:'flex',
-             gap: '10px'
-          }}>
-
-          {/* {user.map((use) => (
+          <Link href={"/"}>
+            <Box
+              sx={{
+                position: "relative",
+                width: 80,
+                height: 70,
+                bgcolor: "primary.main",
+              }}
+            >
+              <Image
+                alt="Logo"
+                src={mainLogo}
+                fill={true}
+                style={{ objectFit: "contain" }}
+              />
+            </Box>
+          </Link>
+          <Box
+            sx={{
+              display: "flex",
+              gap: "10px",
+            }}
+          >
+            {/* {user.map((use) => (
             <Box sx={{
               color: "text.primary",
               ':hover':{
@@ -146,6 +163,17 @@ function Navbar() {
           </Box>
         </Box>
       </Box>
+      <Box
+        sx={{
+          borderBottom: "solid",
+          borderWidth: 3,
+          width: showBorder,
+          borderColor: "text.primary",
+          transition: "width 0.5s",
+          transitionTimingFunction: "ease-in-out",
+        }}
+      ></Box>
+    </Box>
   );
 }
 export default Navbar;

@@ -24,19 +24,23 @@ export default function DarkLightBtn() {
     <>
       <Box
         sx={{
+          position:'sticky',
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          bgcolor: "primary.main",
           color: "text.primary",
           cursor: "pointer",
+          zIndex: 1,
+          bottom: 25,
+          marginLeft: {xs: '90%', sm: '95%'},
+          pb: 1,
           
         }}
         onClick={toggleColorMode}
       >
         {icon ? (<>
         <DarkModeIcon sx={{ 
-
+          fontSize: {xs: 30},
           ':hover': {
             color: 'text.secondary'
           }

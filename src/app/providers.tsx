@@ -13,24 +13,38 @@ import 'media-chrome';
 
 const getDesignTokens = (mode: any) => ({
   direction : 'rtl',
+  typography: {
+    fontFamily: [
+      '-apple-system',
+      'BlinkMacSystemFont',
+      '"Segoe UI"',
+      'Roboto',
+      '"Helvetica Neue"',
+      'Arial',
+      'sans-serif',
+      '"Apple Color Emoji"',
+      '"Segoe UI Emoji"',
+      '"Segoe UI Symbol"',
+    ].join(','),
+  },
   palette: {
     mode,
     ...(mode === "light"
       ? {
           // primary: { main: '#4fc4cf', secondary: '#f0e2e1', third: '#f6efef' },
-          primary: { main: "#ffff", secondary: "#9d52db", },
+          primary: { main: "#ffff", secondary: "#935FB2", },
           text: {
             primary: "#0f0e17",
-            secondary: "#c395e8",
+            secondary: "#935FB2",
             background: "#ffff",
             notActive: "#0000003e"
           },
         }
       : {
-        primary: { main: "#0f0e17", secondary: "#9d52db", },
+        primary: { main: "#0f0e17", secondary: "#935FB2", },
         text: {
             primary: "#ffff",
-            secondary: "#c395e8",
+            secondary: "#935FB2",
             background: "#292828",
             notActive: "#c395e875"
 

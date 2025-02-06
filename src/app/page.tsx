@@ -3,7 +3,7 @@ import { useEffect, useCallback, useState } from "react";
 import Image from "next/image";
 import Video from "next-video";
 import styles from "./page.module.css";
-import { Box, Button, Fade } from "@mui/material";
+import { Box, Button, Fade, Typography } from "@mui/material";
 import GlobalBtn from "../../components/globalBtn/GlobalBtn";
 import Link from "next/link";
 import LogoImg from "../../public/img/SkateBoard/Logo.png";
@@ -16,6 +16,7 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import SkateboardingIcon from "@mui/icons-material/Skateboarding";
+
 export default function Home() {
   const [scrolling, setScrolling] = useState(0);
   const [showPants, setShowPants] = useState(false);
@@ -38,7 +39,7 @@ export default function Home() {
   const onScroll = useCallback(
     (event: any) => {
       const { pageYOffset, scrollY } = window;
-      console.log(scrollY);
+      // console.log(scrollY);
       if (scrollY > 200) {
         setShowPants(true);
       }
@@ -59,24 +60,27 @@ export default function Home() {
       window.removeEventListener("scroll", onScroll, { passive: true });
     };
   }, [bgAttachment]);
+  const text =
+    " ברוכים הבאים לחנות הסקייט החדשה בישראל מביאים לכם את המותגים הכי חמים!\n האתר יעלה בקרוב...";
   return (
     <>
       <Box
         // width={"100vh"}
-        bgcolor={"primary.secondary"}
+        bgcolor={"primary.main"}
         className={styles.all_page}
         sx={{
           display: "flex",
           // justifyContent:'center',
           alignItems: "center",
           flexDirection: "column",
+          // borderTop: 'black'
         }}
       >
         <Box
           height={"78vh"}
           className={styles.main_container}
           sx={{
-            bgcolor: "primary.secondary",
+            // bgcolor: "primary.secondary",
             textAlign: "center",
             display: "flex",
             justifyContent: "center",
@@ -89,7 +93,7 @@ export default function Home() {
           <Fade in={true} timeout={2000}>
             <Box
               sx={{
-                bgcolor: "#000000d5",
+                // bgcolor: "#000000d5",
                 color: "#fffffe",
                 width: { xs: "auto", sm: 550 },
                 height: "auto",
@@ -106,10 +110,10 @@ export default function Home() {
             >
               <Box sx={{ display: "flex", gap: 1 }}>
                 {/* <Box>Skate Shop</Box> */}
-                <Box sx={{ color: "#c395e8" }}>T</Box>
-                <Box>First</Box>
+                <Box sx={{ color: "#935FB2" }}>T</Box>
+                <Box sx={{ color: "text.primary" }}>First</Box>
               </Box>
-              <SkateboardingIcon fontSize="large" />
+              <SkateboardingIcon sx={{color:'text.primary'}} fontSize="large" />
 
               {/* <TypeAnimation
               // sequence={[1000, "Time to build new Skateboard."]}
@@ -122,21 +126,27 @@ export default function Home() {
               }}
               cursor={false}
             /> */}
-              <Box
-                sx={{ fontSize: { xs: 20, sm: 25 }, color: "text.secondary" }}
+              <Typography
+                sx={{ fontSize: { xs: 20, sm: 25 }, color: "text.primary", whiteSpace: 'pre-line' }}
               >
-                ברוכים הבאים לחנות הסקייט החדשה בישראל מביאים לכם את החברות הכי
-                שוחטות שיש האתר יעלה בקרוב!
-              </Box>
-              <Box
-                              sx={{ mt:1 ,fontSize: { xs: 20, sm: 25 }, color: "#fffe" }}
-
-              >בזמן הזה תוכלו להתעדכן איתנו במלאי ולהזמין באינסטגרם:</Box>
+                {text}
+              </Typography>
+              <Typography
+                sx={{
+                  mt: 1,
+                  fontSize: { xs: 20, sm: 25 },
+                  color: "text.secondary",
+                }}
+              >
+                {/* בזמן הזה תוכלו להתעדכן איתנו במלאי ולהזמין באינסטגרם: */}
+                חפשו אותנו באינסטגרם:
+              </Typography>
               <Box>
                 <Link href="https://www.instagram.com/firstt.sk8/">
                   <InstagramIcon
                     sx={{
-                      color: "white",
+                      pt: 5,
+                      color: "text.primary",
                       fontSize: { xs: 35, sm: 50 },
                       transition: "0.5s",
                       ":hover": {
@@ -169,13 +179,14 @@ export default function Home() {
 
         <Box
           sx={{
-            width: { xs: "auto", sm: "80%" },
+            // width: { xs: "auto", sm: "80%" },
             height: "auto",
             position: "relative",
             bgcolor: "primary.secondary",
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
+            
           }}
         >
           <Image
@@ -189,8 +200,8 @@ export default function Home() {
               height: "auto",
             }}
           />
-          <ImageGalleryHome />
         </Box>
+        <ImageGalleryHome />
 
         {/* <Box sx={{ fontSize: 28 }}>Time to Skate</Box> */}
         {/* <Box
