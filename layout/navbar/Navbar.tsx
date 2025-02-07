@@ -2,20 +2,20 @@
 import * as React from "react";
 import { useCallback, useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import MobileNavMenu from "./MobileNavMenu";
+import MenuIconButton from "./MenuIconButton";
 import Box from "@mui/material/Box";
 import DarkLightBtn from "../../components/darkLightBtn";
 import Link from "next/link";
 import Image from "next/image";
 import mainLogo from "@/../public/img/Logo.jpg";
 // const pages = ["Boards", "Accessories", "Info"];
-const pages = [
-  { name: "סקייטבורד", link: "boards" },
-  { name: "אביזרים", link: "accessories" },
+const menuItems = [
+  { Id : 1 ,Title: "סקייטבורד", link: "boards" },
+  { Id : 2, Title: "ביגוד", link: "clothes" },
 ];
-const user = [
-  { name: "הירשם", link: "register" },
-  { name: "התחבר", link: "login" },
+const menuUser = [
+  { Title: "התחבר", link: "login" },
+  { Title: "הירשם", link: "register" },
 ];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
@@ -77,29 +77,28 @@ function Navbar() {
             position: "absolute",
             right: 20,
             display: "flex",
-            flexDirection: { xs: "row", sm: "row" },
+            flexDirection: { xs: "row", md: "row" },
             gap: 2,
           }}
         >
           <Box
             sx={{
-              display: { xs: "block", sm: "none" },
+              display: { xs: "block", md: "none" },
             }}
           >
-            123
-            {/* {MobileNavMenu('block')} */}
+            <MenuIconButton menuItems={menuItems} menuUser={menuUser} />
           </Box>
           <Box
             sx={{
-              display: { xs: "none", sm: "flex" },
+              display: { xs: "none", md: "flex" },
               gap: 2,
             }}
           >
-            {pages.map((page) => (
+            {menuItems.map((menuItems) => (
               <>
-                <Link href={`/${page.link}`}>
+                <Link href={`/${menuItems.link}`}>
                   <Box
-                    key={page.name}
+                    key={menuItems.Title}
                     sx={{
                       color: "text.primary",
                       transition: "0.5s",
@@ -108,7 +107,7 @@ function Navbar() {
                       },
                     }}
                   >
-                    {page.name}
+                    {menuItems.Title}
                   </Box>
                 </Link>
               </>
@@ -174,7 +173,6 @@ function Navbar() {
         }}
       ></Box>
       <Box>
-            {/* {MobileNavMenu('block')}  */}
 
       </Box>
     </Box>

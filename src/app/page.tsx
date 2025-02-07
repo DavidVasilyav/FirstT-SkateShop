@@ -77,7 +77,7 @@ export default function Home() {
         }}
       >
         <Box
-          height={"78vh"}
+          height={"70vh"}
           className={styles.main_container}
           sx={{
             // bgcolor: "primary.secondary",
@@ -132,8 +132,8 @@ export default function Home() {
                 {text}
               </Typography>
               <Typography
+                variant="overline"
                 sx={{
-                  mt: 1,
                   fontSize: { xs: 20, sm: 25 },
                   color: "text.secondary",
                 }}
@@ -145,7 +145,6 @@ export default function Home() {
                 <Link href="https://www.instagram.com/firstt.sk8/">
                   <InstagramIcon
                     sx={{
-                      pt: 5,
                       color: "text.primary",
                       fontSize: { xs: 35, sm: 50 },
                       transition: "0.5s",
