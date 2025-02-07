@@ -104,16 +104,18 @@ export default function Home() {
                 flexDirection: "column",
                 borderColor: "text.primary",
                 borderRadius: 2,
-                fontSize: 50,
-                m: 1,
+                fontSize: 80,
               }}
             >
-              <Box sx={{ display: "flex", gap: 1 }}>
+              <Box sx={{ display: "flex", gap: 1, fontFamily: "cursive" }}>
                 {/* <Box>Skate Shop</Box> */}
                 <Box sx={{ color: "#935FB2" }}>T</Box>
                 <Box sx={{ color: "text.primary" }}>First</Box>
               </Box>
-              <SkateboardingIcon sx={{color:'text.primary'}} fontSize="large" />
+              <SkateboardingIcon
+                sx={{ color: "text.primary", borderBottom: "2px solid black" }}
+                fontSize="large"
+              />
 
               {/* <TypeAnimation
               // sequence={[1000, "Time to build new Skateboard."]}
@@ -127,7 +129,11 @@ export default function Home() {
               cursor={false}
             /> */}
               <Typography
-                sx={{ fontSize: { xs: 20, sm: 25 }, color: "text.primary", whiteSpace: 'pre-line' }}
+                sx={{
+                  fontSize: { xs: 20, sm: 25 },
+                  color: "text.primary",
+                  whiteSpace: "pre-line",
+                }}
               >
                 {text}
               </Typography>
@@ -185,7 +191,6 @@ export default function Home() {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            
           }}
         >
           <Image
@@ -201,8 +206,7 @@ export default function Home() {
           />
         </Box>
         <Box>
-
-        <ImageGalleryHome />
+          <ImageGalleryHome />
         </Box>
 
         {/* <Box sx={{ fontSize: 28 }}>Time to Skate</Box> */}

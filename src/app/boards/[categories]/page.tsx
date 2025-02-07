@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
-import { Box, Button, Paper } from "@mui/material";
+import { Box, Button, Paper, Typography } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 import Link from "next/link";
 import getItemsFromBoard from "@/app/api/getItemsFromBoard";
@@ -83,6 +83,8 @@ export default function page() {
           alignItems: "center",
         }}
       >
+
+        <Typography variant="h2" > ...Coming Soon</Typography>
         <Grid
           key={"products"}
           container

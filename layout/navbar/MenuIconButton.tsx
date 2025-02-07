@@ -124,11 +124,11 @@ const MenuIconButton: React.FC<MenuIconButtonProps> = ({
           {renderMenuItems(menuItems)}
         </List>
 
-        <List subheader={<ListSubheader id="nested-list">משתמש</ListSubheader>}>
+        <List subheader={<ListSubheader  id="nested-list">משתמש</ListSubheader>}>
           {menuUser.map((item) => (
-            <Link href={`user/${item.link}`} key={item.Id}>
+            <Link  href={`/user/${item.link}`} key={item.Id} onClick={toggleDrawer(false)}>
               <ListItemButton button>
-                <ListItemText primary={item.Title} />
+                <ListItemText  onClick={toggleDrawer(false)} primary={item.Title} />
               </ListItemButton>
             </Link>
           ))}

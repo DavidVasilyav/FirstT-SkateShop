@@ -33,8 +33,7 @@ function Categories(props : Props) {
           fontSize: 18
         }}
         >
-        {/* Everything for your Skate */}
-        כול החלקים לסקייט החדש שלכם
+        Everything for your Skate
       </Box>
         </Slide>
       <Box
@@ -53,7 +52,7 @@ function Categories(props : Props) {
                       > 
               <Grid2
                 item
-                size={{xs: 6, sm: 3}}
+                size={{xs: 6, md: 3}}
                 key={oneCategory.name}
                 sx={{
                   display: "flex",
@@ -64,8 +63,8 @@ function Categories(props : Props) {
                 <Link href={`boards/${oneCategory.name}`}>
                   <Box
                     onTouchStart={() => console.log(123)}
-                    width={130}
-                    height={200}
+                    width={200}
+                    height={160}
                     sx={{
                       border: '3px solid',
                       textAlign:'center',
@@ -76,9 +75,10 @@ function Categories(props : Props) {
                       backgroundImage: `url(${oneCategory.img})`,
                       backgroundSize: "cover",
                       backgroundPosition: "center center",
-                      transition:'1s',
+                      transition:'0.5s',
+                      borderRadius: '5%',
                       ':hover': {
-                        p:1
+                        p:0.5
                       }
                     }}
                   >

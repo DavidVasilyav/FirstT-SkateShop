@@ -81,7 +81,7 @@ export default function Login() {
           justifyContent:'center'
         }}
       >
-        <Typography component="h1" variant="h5">
+        <Typography  variant="h5">
           Sign in
         </Typography>
 
@@ -103,10 +103,11 @@ export default function Login() {
                   borderColor: "text.secondary",
                 },
               "& .MuiInputLabel-root.Mui-focused": {
-                color: "text.primary",
+                // color: "text.primary",
               },
               "& .MuiOutlinedInput-root": {
                 color: "text.primary",
+
               },
               "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
                 borderColor: "text.primary",
@@ -149,6 +150,7 @@ export default function Login() {
                 type="submit"
                 fullWidth
                 variant="contained"
+                disabled
                 sx={{ mt: 3, mb: 2 }}
               >
                 Sign In

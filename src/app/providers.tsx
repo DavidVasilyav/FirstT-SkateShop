@@ -9,12 +9,31 @@ import createCache from '@emotion/cache';
 import rtlPlugin from 'stylis-plugin-rtl';
 import { CacheProvider } from '@emotion/react';
 import 'media-chrome';
+import { Grape_Nuts } from 'next/font/google'
+import { Style_Script } from 'next/font/google'
+import { Indie_Flower } from 'next/font/google'
 
+const GrapeNuts = Grape_Nuts({
+  subsets: ["latin"],
+  weight: "400",
+});
+const StyleScript = Style_Script({
+  subsets: ["latin"],
+  weight: "400",
+});
+const IndieFlower = Indie_Flower({
+  subsets: ["latin"],
+  weight: "400",
+});
 
 const getDesignTokens = (mode: any) => ({
   direction : 'rtl',
   typography: {
     fontFamily: [
+      'Indie Flower',
+      'Playfair Display',
+      'GrapeNuts',
+      'Style Script',
       '-apple-system',
       'BlinkMacSystemFont',
       '"Segoe UI"',
@@ -36,7 +55,7 @@ const getDesignTokens = (mode: any) => ({
           text: {
             primary: "#0f0e17",
             secondary: "#935FB2",
-            background: "#ffff",
+            background: "#945fb290",
             notActive: "#0000003e"
           },
         }

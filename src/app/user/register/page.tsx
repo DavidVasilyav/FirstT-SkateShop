@@ -495,6 +495,7 @@ export default function Register() {
                 </Button>
               )} */}
               <Button
+              disabled
                 sx={[{ color: activeStep === steps.length -1 ? "#ffffffec" : 'text.primary', borderBottom: "2px solid", mr: 1,},
                    
                 ]}
