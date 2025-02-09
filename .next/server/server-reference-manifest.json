@@ -2,23 +2,11 @@
   "node": {
     "00ecbbffe05050cacc300c766da0969a2515e2eb1f": {
       "workers": {
-        "app/boards/[categories]/page": {
-          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5CUsers%5C%5Cdavid%5C%5COneDrive%5C%5C%D7%A9%D7%95%D7%9C%D7%97%D7%9F%20%D7%94%D7%A2%D7%91%D7%95%D7%93%D7%94%5C%5CDavid%5C%5CNextJS13%5C%5CSkate%20Shop%5C%5CSkateShop%5C%5Csrc%5C%5Capp%5C%5Capi%5C%5CgetCookies.ts%22%2C%5B%5B%2200ecbbffe05050cacc300c766da0969a2515e2eb1f%22%2C%22default%22%5D%5D%5D%5D&__client_imported__=!",
-          "async": false
-        },
-        "app/_not-found/page": {
-          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5CUsers%5C%5Cdavid%5C%5COneDrive%5C%5C%D7%A9%D7%95%D7%9C%D7%97%D7%9F%20%D7%94%D7%A2%D7%91%D7%95%D7%93%D7%94%5C%5CDavid%5C%5CNextJS13%5C%5CSkate%20Shop%5C%5CSkateShop%5C%5Csrc%5C%5Capp%5C%5Capi%5C%5CgetCookies.ts%22%2C%5B%5B%2200ecbbffe05050cacc300c766da0969a2515e2eb1f%22%2C%22default%22%5D%5D%5D%5D&__client_imported__=!",
-          "async": false
-        },
-        "app/boards/page": {
-          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5CUsers%5C%5Cdavid%5C%5COneDrive%5C%5C%D7%A9%D7%95%D7%9C%D7%97%D7%9F%20%D7%94%D7%A2%D7%91%D7%95%D7%93%D7%94%5C%5CDavid%5C%5CNextJS13%5C%5CSkate%20Shop%5C%5CSkateShop%5C%5Csrc%5C%5Capp%5C%5Capi%5C%5CgetCookies.ts%22%2C%5B%5B%2200ecbbffe05050cacc300c766da0969a2515e2eb1f%22%2C%22default%22%5D%5D%5D%5D&__client_imported__=!",
-          "async": false
-        },
         "app/page": {
           "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5CUsers%5C%5Cdavid%5C%5COneDrive%5C%5C%D7%A9%D7%95%D7%9C%D7%97%D7%9F%20%D7%94%D7%A2%D7%91%D7%95%D7%93%D7%94%5C%5CDavid%5C%5CNextJS13%5C%5CSkate%20Shop%5C%5CSkateShop%5C%5Csrc%5C%5Capp%5C%5Capi%5C%5CgetCookies.ts%22%2C%5B%5B%2200ecbbffe05050cacc300c766da0969a2515e2eb1f%22%2C%22default%22%5D%5D%5D%5D&__client_imported__=!",
           "async": false
         },
-        "app/user/register/page": {
+        "app/_not-found/page": {
           "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5CUsers%5C%5Cdavid%5C%5COneDrive%5C%5C%D7%A9%D7%95%D7%9C%D7%97%D7%9F%20%D7%94%D7%A2%D7%91%D7%95%D7%93%D7%94%5C%5CDavid%5C%5CNextJS13%5C%5CSkate%20Shop%5C%5CSkateShop%5C%5Csrc%5C%5Capp%5C%5Capi%5C%5CgetCookies.ts%22%2C%5B%5B%2200ecbbffe05050cacc300c766da0969a2515e2eb1f%22%2C%22default%22%5D%5D%5D%5D&__client_imported__=!",
           "async": false
         },
@@ -28,11 +16,8 @@
         }
       },
       "layer": {
-        "app/boards/[categories]/page": "rsc",
-        "app/_not-found/page": "rsc",
-        "app/boards/page": "rsc",
         "app/page": "rsc",
-        "app/user/register/page": "rsc",
+        "app/_not-found/page": "rsc",
         "app/user/login/page": "rsc"
       }
     }

@@ -55,7 +55,7 @@ const getDesignTokens = (mode: any) => ({
           text: {
             primary: "#0f0e17",
             secondary: "#935FB2",
-            background: "#945fb290",
+            background: "#e6e3e3",
             notActive: "#0000003e"
           },
         }

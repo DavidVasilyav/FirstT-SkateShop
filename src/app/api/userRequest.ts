@@ -1,4 +1,4 @@
-import axios from "axios";
+const axios = require('axios').default;
 
 const baseURL = "http://localhost:6060/user/";
 export async function loginUser(data: object) {
@@ -27,6 +27,19 @@ export async function registerUser(data: object) {
   } catch (error) {
     console.log(error);
     return error;
+  }
+}
+
+export async function userBasket(data: object) {
+  console.log(333);
+  try {
+    const response = await axios.get(baseURL + "getBasket/?ID=1",)
+
+    console.log(response.data);
+    return response.data;
+  } catch (error) {
+    console.log(error);
+    return error.response.data.message;
   }
 }
 // http://localhost:6060/set-cookies

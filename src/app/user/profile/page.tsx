@@ -2,6 +2,7 @@ import { Box } from "@mui/material";
 // import { cookies } from 'next/headers'
 import getCookies from "../../api/getCookies";
 import UserDashboard from "../../../../components/userDashboard/UserDashboard";
+import { userBasket } from "@/app/api/userRequest";
 const page = async ({ params }: { params: { token: any } }) => {
   // const userAut = await getCookies()
 let data = 123;
@@ -14,7 +15,8 @@ let data = 123;
       console.log(data);
     }
   };
-await tok()
+  await tok()
+  await userBasket()
   return (
     <>
       <Box

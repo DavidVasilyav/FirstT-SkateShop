@@ -1,7 +1,4 @@
 {
-  "/boards/page": "app/boards/page.js",
-  "/boards/[categories]/page": "app/boards/[categories]/page.js",
   "/page": "app/page.js",
-  "/user/register/page": "app/user/register/page.js",
   "/user/login/page": "app/user/login/page.js"
 }

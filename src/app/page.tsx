@@ -19,8 +19,6 @@ import SkateboardingIcon from "@mui/icons-material/Skateboarding";
 
 export default function Home() {
   const [scrolling, setScrolling] = useState(0);
-  const [showPants, setShowPants] = useState(false);
-  const [showAccessories, setShowAccessories] = useState(false);
   const [bgAttachment, setAttachment] = useState("");
 
   const checkIfIphone = () => {
@@ -41,16 +39,14 @@ export default function Home() {
       const { pageYOffset, scrollY } = window;
       // console.log(scrollY);
       if (scrollY > 200) {
-        setShowPants(true);
+
       }
       if (scrollY > 840) {
-        setShowAccessories(true);
       }
       if (scrollY < 50) {
-        setShowPants(false);
       }
     },
-    [showPants, showAccessories]
+    []
   );
 
   useEffect(() => {
@@ -73,7 +69,9 @@ export default function Home() {
           // justifyContent:'center',
           alignItems: "center",
           flexDirection: "column",
-          // borderTop: 'black'
+          borderColor: 'black',
+          borderTop: 'solid 3',
+
         }}
       >
         <Box

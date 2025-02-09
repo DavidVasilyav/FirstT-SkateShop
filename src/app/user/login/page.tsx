@@ -9,6 +9,7 @@ import {
   createTheme,
   CircularProgress,
   Alert,
+  Paper,
 } from "@mui/material";
 import { loginUser } from "@/app/api/userRequest";
 
@@ -17,6 +18,9 @@ export default function Login() {
     email: "",
     password: "",
   });
+  var person = {
+    name: userData,
+  };
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
 
@@ -31,29 +35,29 @@ export default function Login() {
   };
   const handleSubmit = async (event) => {
     event.preventDefault();
-     
+
     setLoading(false);
-    if(userData.password == '' && userData.email == ""){
+    if (userData.password == "" && userData.email == "") {
       console.log(123);
       return setTimeout(() => {
-        setError('יש להזין איימיל וסיסמה');
+        setError("יש להזין איימיל וסיסמה");
         return setLoading(true);
       }, 2500);
     }
 
-    if(userData.email == ''){
+    if (userData.email == "") {
       return setTimeout(() => {
-        setError('הזן כתובת איימיל');
+        setError("הזן כתובת איימיל");
         return setLoading(true);
       }, 2500);
     }
-    if(userData.password == ''){
+    if (userData.password == "") {
       return setTimeout(() => {
-        setError('סיסמה לא הוזנה');
+        setError("סיסמה לא הוזנה");
         return setLoading(true);
       }, 2500);
     }
-   
+
     const response = await loginUser(userData);
     if (response == "שם משתמש או סיסמה לא נכונים") {
       setTimeout(() => {
@@ -65,25 +69,38 @@ export default function Login() {
   useEffect(() => {}, []);
 
   return (
-    <Container sx={{minHeight:'80vh', display:'flex', alignItems:'center'}} component="main" maxWidth="xs">
-      <Box
+
+    <Container
+      sx={{ minHeight: "80vh", display: "flex", alignItems: "center" }}
+      component="main"
+      maxWidth="xs"
+    >
+
+      <Paper
+      elevation={5}
+      variant="outlined"
         sx={{
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
           maxHeight: "400px",
-          minHeight:"400px",
-          bgcolor:'text.background',
+          minHeight: "400px",
+          bgcolor: "text.background",
           p: 1,
           m: 1,
           borderRadius: 2,
           // display:'flex',
-          justifyContent:'center'
+          justifyContent: "center",
         }}
       >
-        <Typography  variant="h5">
-          Sign in
-        </Typography>
+        <Typography sx={{ 
+          fontSize: { xs: 25 },
+          bottom: 20,
+          position:'relative',
+          color:'text.primary'
+
+          
+          }}>התחבר</Typography>
 
         <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
           <TextField
@@ -103,11 +120,10 @@ export default function Login() {
                   borderColor: "text.secondary",
                 },
               "& .MuiInputLabel-root.Mui-focused": {
-                // color: "text.primary",
+                color: "text.primary",
               },
               "& .MuiOutlinedInput-root": {
                 color: "text.primary",
-
               },
               "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
                 borderColor: "text.primary",
@@ -158,16 +174,17 @@ export default function Login() {
             </>
           ) : (
             <>
-            <Box sx={{
-              display:'flex',
-              justifyContent:'center',
-              alignItems:'center',
-              alignContent:'center',
-              mt: 1
-            }}>
-
-              <CircularProgress sx={{ color: "primary.secondary" }} />
-            </Box>
+              <Box
+                sx={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  alignContent: "center",
+                  mt: 1,
+                }}
+              >
+                <CircularProgress sx={{ color: "primary.secondary" }} />
+              </Box>
             </>
           )}
           {error ? (
@@ -178,7 +195,8 @@ export default function Login() {
             <></>
           )}
         </Box>
-      </Box>
+      </Paper>
+
     </Container>
   );
 }
