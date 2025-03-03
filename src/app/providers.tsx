@@ -51,19 +51,19 @@ const getDesignTokens = (mode: any) => ({
     ...(mode === "light"
       ? {
           // primary: { main: '#4fc4cf', secondary: '#f0e2e1', third: '#f6efef' },
-          primary: { main: "#ffff", secondary: "#935FB2", },
+          primary: { main: "#ffff", secondary: "#7b4da1", },
           text: {
             primary: "#0f0e17",
-            secondary: "#935FB2",
+            secondary: "#7b4da1",
             background: "#e6e3e3",
             notActive: "#0000003e"
           },
         }
       : {
-        primary: { main: "#0f0e17", secondary: "#935FB2", },
+        primary: { main: "#0f0e17", secondary: "#7b4da1", },
         text: {
             primary: "#ffff",
-            secondary: "#935FB2",
+            secondary: "#7b4da1",
             background: "#292828",
             notActive: "#c395e875"
 

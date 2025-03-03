@@ -9,17 +9,31 @@ import Link from "next/link";
 import LogoImg from "../../public/img/SkateBoard/Logo.png";
 import { TypeAnimation } from "react-type-animation";
 import ImageGalleryHome from "../../components/homePageImageGallery/ImageGalleryHome";
-import logosForHomePage from "@/../public/img/homeGallery/logosForHomePage.png";
+import homeBigLogo2 from "@/../public/img/homeBigLogo2.png";
 import skateVideo from "@/../videos/all_skater.mp4json";
 import HomePageCategories from "../../components/homePageCategories/HomePageCategories";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import SkateboardingIcon from "@mui/icons-material/Skateboarding";
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import HomePageBrands from "../../components/homePageBrands/HomePageBrands";
 
 export default function Home() {
   const [scrolling, setScrolling] = useState(0);
   const [bgAttachment, setAttachment] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const dummyData = ['a','b','c','d','e','f']
+  const logoImages = ['logo1.png', 'logo2.png', 'logo3.png', 'logo4.png']
+  const itemsPerPage = 2;
+  const totalPages = Math.ceil(logoImages.length / itemsPerPage);
+  const indexOfLastItem = currentPage * itemsPerPage;
+  console.log(indexOfLastItem);
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = logoImages.slice(indexOfFirstItem, indexOfLastItem);
+
 
   const checkIfIphone = () => {
     let isIOS =
@@ -34,20 +48,16 @@ export default function Home() {
     }
   };
 
-  const onScroll = useCallback(
-    (event: any) => {
-      const { pageYOffset, scrollY } = window;
-      // console.log(scrollY);
-      if (scrollY > 200) {
-
-      }
-      if (scrollY > 840) {
-      }
-      if (scrollY < 50) {
-      }
-    },
-    []
-  );
+  const onScroll = useCallback((event: any) => {
+    const { pageYOffset, scrollY } = window;
+    // console.log(scrollY);
+    if (scrollY > 200) {
+    }
+    if (scrollY > 840) {
+    }
+    if (scrollY < 50) {
+    }
+  }, []);
 
   useEffect(() => {
     checkIfIphone();
@@ -69,9 +79,10 @@ export default function Home() {
           // justifyContent:'center',
           alignItems: "center",
           flexDirection: "column",
-          borderColor: 'black',
-          borderTop: 'solid 3',
-
+          borderColor: "primary.main",
+          // borderTop: 'double 3',
+          overflowY: "hidden",
+          overflowX: 'hidden'
         }}
       >
         <Box
@@ -88,13 +99,16 @@ export default function Home() {
             width: { xs: "100%", sm: "100%" },
           }}
         >
+             <Box sx={{height:300, width:'100%', bgcolor: '#ffffff', borderRadius: 0, mr:{xs:5, sm: 0} }}>
+              <Image src={homeBigLogo2} height={400} width={550} alt="first-T SkateBoard shop logo סקייטבורד" />
+              </Box>
           <Fade in={true} timeout={2000}>
             <Box
               sx={{
                 // bgcolor: "#000000d5",
                 color: "#fffffe",
-                width: { xs: "auto", sm: 550 },
-                height: "auto",
+                width: { xs: 400, sm: 550 },
+                height: "500px",
                 textAlign: "center",
                 display: "flex",
                 justifyContent: "center",
@@ -105,27 +119,20 @@ export default function Home() {
                 fontSize: 80,
               }}
             >
-              <Box sx={{ display: "flex", gap: 1, fontFamily: "cursive" }}>
-                {/* <Box>Skate Shop</Box> */}
-                <Box sx={{ color: "#935FB2" }}>T</Box>
-                <Box sx={{ color: "text.primary" }}>First</Box>
+           
+              <Box sx={{ display: "flex" }}>
               </Box>
               <SkateboardingIcon
-                sx={{ color: "text.primary", borderBottom: "2px solid black" }}
+                sx={{
+                  color: "text.primary",
+                  borderBottom: "2px solid",
+                  borderColor: "primary.secondary",
+                  pt: 1
+                }}
                 fontSize="large"
               />
 
-              {/* <TypeAnimation
-              // sequence={[1000, "Time to build new Skateboard."]}
-              sequence={[1000, " ברוכים הבאים לחנות הסקייט החדשה בישראל עם כול החברות הכי שוחטות שיש האתר יעלה בקרוב... בזמן הזה תוכלו להתעדכן איתנו במלאי ולהזמין באינסטגרם"]}
-              repeat={Infinity}
-              style={{
-                fontSize: "20px",
-                width: 500,
-                color: "#fffffe",
-              }}
-              cursor={false}
-            /> */}
+            
               <Typography
                 sx={{
                   fontSize: { xs: 20, sm: 25 },
@@ -142,7 +149,6 @@ export default function Home() {
                   color: "text.secondary",
                 }}
               >
-                {/* בזמן הזה תוכלו להתעדכן איתנו במלאי ולהזמין באינסטגרם: */}
                 חפשו אותנו באינסטגרם:
               </Typography>
               <Box>
@@ -152,9 +158,10 @@ export default function Home() {
                       color: "text.primary",
                       fontSize: { xs: 35, sm: 50 },
                       transition: "0.5s",
+                      borderBottom: "2px solid black",
                       ":hover": {
                         fontSize: { xs: 40, sm: 55 },
-                        color: "#c395e8",
+                        color: "#7b4da1",
                       },
                     }}
                   />
@@ -162,24 +169,8 @@ export default function Home() {
               </Box>
             </Box>
           </Fade>
-          <Box></Box>
-
-          {/* <Box
-          sx={{
-            height: "10vh",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            color: "text.secondary",
-          }}
-        >
-          Scroll down
-        </Box> */}
-          <Box sx={{ bgcolor: "#000000b9" }}>
-            {/* <Image src={logosForHomePage} width={500} /> */}
-          </Box>
         </Box>
-
+      
         <Box
           sx={{
             // width: { xs: "auto", sm: "80%" },
@@ -188,10 +179,13 @@ export default function Home() {
             bgcolor: "primary.secondary",
             display: "flex",
             flexDirection: "column",
-            alignItems: "center",
+            alignItems: "center", mt: 9,
+            borderRadius: 5,
+            width: 600
           }}
         >
-          <Image
+          
+          {/* <Image
             alt="mainLogos"
             src={"/img/homeGallery/logosForHomePage.png"}
             width={500}
@@ -201,38 +195,32 @@ export default function Home() {
               width: "100%",
               height: "auto",
             }}
-          />
+          /> */}
         </Box>
-        <Box>
-          <ImageGalleryHome />
-        </Box>
-
-        {/* <Box sx={{ fontSize: 28 }}>Time to Skate</Box> */}
-        {/* <Box
-          sx={{
-            color: "text.primary",
-            height: 100,
-            textAlign: "center",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            gap: 2,
-          }}
-        >
-          <Box sx={{ fontSize: 28 }}>בנה את הסקייט שלך</Box>
+          <HomePageBrands />
+            
+        {/* <Box sx={{ height: 200, bgcolor:'primary.secondary', width:'100%', display:'flex', justifyContent:'center', alignItems:'center', gap: 10, overflowX:'auto', scrollbarWidth: 50 }}>
+        <Button sx={{display:'flex',}} onClick={() => setCurrentPage(currentPage - 1)} disabled={currentPage == 1}>
+        <ArrowForwardIosIcon />
+         <SkateboardingIcon />
+         </Button>
+         {logoImages.map((one, index) => (
+          <>
+          <Box sx={{  width: 120, height: 50, display:'flex', justifyContent:'center', alignItems:'center', }}>
+            <Image alt={index + one} src={`/img/brands/${one}`} width={200} height={150} />
+          </Box>
+          </>
+         ))}
+         <Button sx={{display:'flex',}} onClick={() => setCurrentPage(currentPage + 1)} disabled={currentPage == 2}>
+         <SkateboardingIcon sx={{transform:'scaleX(-1)', }}  />
+         <ArrowBackIosNewIcon />
+         </Button>
         </Box> */}
-
-        {/* <Box
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            flexDirection: { xs: "column", md: "row" },
-          }}
-        >
-        <HomePageCategories />
-        
-        </Box> */}
+        <Fade in={true} timeout={2000}>
+          <Box>
+            <ImageGalleryHome />
+          </Box>
+        </Fade>
       </Box>
     </>
   );

@@ -118,7 +118,7 @@
   top: 50%;
   transform: translateY(-50%);
   -webkit-transform: translateY(-50%);
-  fill: #935FB2;
+  fill: #070607;
   cursor: pointer;
 }
 
@@ -132,5 +132,5 @@
 }
 
 .arrow--disabled {
-  fill: #945fb27a;
+  /* fill: #8280837a; */
 }

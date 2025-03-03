@@ -8,10 +8,11 @@ export default function GlobalBtn(btnProps: BtnProps) {
   return (
     <>
       <Button
+      onClick={btnProps.click}
         sx={{
           color: "text.primary",
           bgcolor: "text.background",
-          // borderRadius: 5,
+          borderRadius: 5,
           fontSize: 18,
           height: '25px',
           border:'2px solid',

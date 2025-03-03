@@ -10,6 +10,7 @@ import {
   ListItemIcon,
   Collapse,
   Box,
+  Typography,
 } from "@mui/material";
 import { GiSkateboard } from "react-icons/gi";
 
@@ -42,7 +43,6 @@ const AllCategoriess = [
   // { nameHE: "גלגsלים", name: "Wheels", timeout: 2800 },
 ];
 
-
 const MenuIconButton: React.FC<MenuIconButtonProps> = ({
   menuItems,
   menuUser,
@@ -72,7 +72,13 @@ const MenuIconButton: React.FC<MenuIconButtonProps> = ({
 
   const mapCategories = (data) =>
     data.map((category) => (
-      <Link onClick={() => setDrawerOpen(false)} href={`/boards/${category.name}`}>
+      <Link
+        onClick={(e) => {
+          setDrawerOpen(false);
+          setOpenItems([]);
+        }}
+        href={`/boards/${category.name}`}
+      >
         <ListItemButton sx={{ pl: 4 }} key={category.name}>
           <ListItemIcon>
             <GiSkateboard />
@@ -80,10 +86,9 @@ const MenuIconButton: React.FC<MenuIconButtonProps> = ({
           <ListItemText primary={category.nameHE} />
         </ListItemButton>
       </Link>
-    )) ;
-  
+    ));
+
   const renderMenuItems = (items: MenuItem[]) => {
-    console.log(items);
     return items.map((item) => (
       <div key={item.Id}>
         <ListItemButton
@@ -92,8 +97,13 @@ const MenuIconButton: React.FC<MenuIconButtonProps> = ({
           button
         >
           {openItems.includes(item.Id) ? <ExpandLess /> : <ExpandMore />}
-          <Link href={`/${item.link}`}>
-          <ListItemText sx={{pl: 1}} primary={item.Title} />
+          <Link
+            href={`/${item.link}`}
+            onClick={(e) => {
+              setDrawerOpen(false);
+            }}
+          >
+            <ListItemText sx={{ pl: 2,  }} primary={item.Title} />
           </Link>
         </ListItemButton>
         <Collapse in={openItems.includes(item.Id)} timeout="auto" unmountOnExit>
@@ -124,14 +134,35 @@ const MenuIconButton: React.FC<MenuIconButtonProps> = ({
           {renderMenuItems(menuItems)}
         </List>
 
-        <List subheader={<ListSubheader  id="nested-list">משתמש</ListSubheader>}>
+        <List
+          subheader={
+            <ListSubheader
+              sx={{ borderTop: "2px solid", borderColor: "primary.secondary" }}
+              id="nested-list"
+            ></ListSubheader>
+          }
+        >
           {menuUser.map((item) => (
-            <Link  href={`/user/${item.link}`} key={item.Id} onClick={toggleDrawer(false)}>
+            <Link
+              href={`/user/${item.link}`}
+              key={item.Id}
+              onClick={toggleDrawer(false)}
+            >
               <ListItemButton button>
-                <ListItemText  onClick={toggleDrawer(false)} primary={item.Title} />
+                <ListItemText
+                  onClick={toggleDrawer(false)}
+                  primary={item.Title}
+                />
               </ListItemButton>
             </Link>
           ))}
+          <ListItemButton button>
+            <Typography variant="caption">עלינו</Typography>
+          </ListItemButton>
+
+          <ListItemButton button>
+            <Typography variant="caption">צור קשר</Typography>
+          </ListItemButton>
         </List>
       </Drawer>
     </>

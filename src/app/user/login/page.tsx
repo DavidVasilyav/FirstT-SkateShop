@@ -12,6 +12,8 @@ import {
   Paper,
 } from "@mui/material";
 import { loginUser } from "@/app/api/userRequest";
+import { redirect } from "next/navigation";
+import { AxiosError } from "axios";
 
 export default function Login() {
   const [userData, setUserData] = useState({
@@ -23,6 +25,8 @@ export default function Login() {
   };
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
+  const [disableBtn, setDisableBtn] = useState(false);
+  const [btnText, setBtnText] = useState('התחבר ');
 
   const handleChange = (event: any) => {
     const { name, value } = event.target;
@@ -35,7 +39,7 @@ export default function Login() {
   };
   const handleSubmit = async (event) => {
     event.preventDefault();
-
+    setError(null);
     setLoading(false);
     if (userData.password == "" && userData.email == "") {
       console.log(123);
@@ -54,16 +58,31 @@ export default function Login() {
     if (userData.password == "") {
       return setTimeout(() => {
         setError("סיסמה לא הוזנה");
-        return setLoading(true);
+        setLoading(true);
       }, 2500);
     }
 
     const response = await loginUser(userData);
+    console.log(response);
     if (response == "שם משתמש או סיסמה לא נכונים") {
       setTimeout(() => {
         setError("שם משתמש או סיסמה לא נכונים");
         return setLoading(true);
       }, 2500);
+    } if ( response.message == 'Network Error') {
+      console.log('err');
+      setTimeout(() => {
+        setError("תקלה אין אפשרות להתחבר");
+        return setLoading(true);
+      }, 2500);
+    }
+     else {
+      // setDisableBtn(true)
+      setBtnText(`ברוך הבא ${response.message}`)
+      setTimeout(() => {
+        return redirect('/') 
+
+      }, 1500)
     }
   };
   useEffect(() => {}, []);
@@ -166,10 +185,10 @@ export default function Login() {
                 type="submit"
                 fullWidth
                 variant="contained"
-                disabled
                 sx={{ mt: 3, mb: 2 }}
-              >
-                Sign In
+                disabled={disableBtn}
+>
+  התחבר
               </Button>
             </>
           ) : (
@@ -180,10 +199,16 @@ export default function Login() {
                   justifyContent: "center",
                   alignItems: "center",
                   alignContent: "center",
+                  flexDirection: 'column',
                   mt: 1,
                 }}
               >
-                <CircularProgress sx={{ color: "primary.secondary" }} />
+                  <CircularProgress sx={{ color: "primary.secondary" }} />
+                <Box sx={{ pt: 3}}>
+                {btnText}
+
+                </Box>
+
               </Box>
             </>
           )}

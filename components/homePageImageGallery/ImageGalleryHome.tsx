@@ -18,20 +18,20 @@ export default function ImageGalleryHome() {
   const [sliderRef, instanceRef] = useKeenSlider({
     initial: 0,
     rtl: true,
-    // loop: true,
+    loop: true,
     renderMode:'performance',
     slideChanged(slider) {
       setCurrentSlide(slider.track.details.rel)
     },
     created(s) {
-      s.moveToIdx(5, true, animation)
+      s.moveToIdx(2, true, animation)
       setLoaded(true)
     },
     updated(s) {
-      s.moveToIdx(s.track.details.abs + 5, true, animation)
+      s.moveToIdx(s.track.details.abs + 2, true, animation)
     },
     animationEnded(s) {
-      s.moveToIdx(s.track.details.abs + 5, true, animation)
+      s.moveToIdx(s.track.details.abs + 2, true, animation)
     },
   });
 
@@ -70,7 +70,7 @@ export default function ImageGalleryHome() {
           </>
         )}
       </div>
-      {loaded && instanceRef.current && (
+      {/* {loaded && instanceRef.current && (
         <div className="dots">
           {[
             ...Array(instanceRef.current.track.details.slides.length).keys(),
@@ -87,7 +87,7 @@ export default function ImageGalleryHome() {
           })}
         </div>
 
-)}
+)} */}
 </Box>
     </>
   )

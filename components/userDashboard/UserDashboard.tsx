@@ -1,52 +1,60 @@
-'use client';
-import React, { useEffect, useState } from 'react';
-import { Box, Typography, Card, CardContent, Tabs, Tab } from '@mui/material';
+"use client";
+import React, { useEffect, useState } from "react";
+import {
+  Box,
+  Typography,
+  Card,
+  CardContent,
+  Tabs,
+  Tab,
+  Paper,
+  Button,
+} from "@mui/material";
+import RemoveCircleOutlineIcon from "@mui/icons-material/RemoveCircleOutline";
+import {
+  removeFromBasket,
+  updateQuantity,
+  updateQuantityIncrement,
+  userBasket,
+} from "@/app/api/userRequest";
+import BasketTab from './BasketTab'
+import UserTab from './UserTab'
 
-const UserDashboard = ({ data }) => {
-  const [newData, setNewData] = useState(data || {});
-  const [tabIndex, setTabIndex] = useState(0); // State to handle selected tab
-
-  useEffect(() => {
-    if (!data) {
-      // Set dummy data if no data is provided
-      setNewData({
-        Address: "בלפור 10 דירה 40",
-        City: "אשקלון",
-        FloorNumber: "50",
-        HouseApsNumber: "10",
-        PostalCode: "7849717",
-        Street: "בלפור 10 דירה 40",
-        Email: "david12788@gmail.com",
-        FirstName: "y",
-        LastName: "וסילייב",
-        Phone: "0524245371",
-        basketItems: [
-          { name: "פריט 1", quantity: 2 },
-          { name: "פריט 2", quantity: 1 },
-          { name: "פריט 3", quantity: 5 },
-        ]
-      });
-    } else {
-      setNewData(data);
-      console.log(newData);
-    }
-  }, [data]);
-
+const UserDashboard = ({ data, basket }) => {
+  const [newBasket, setNewBasket] = useState(basket || []);
+  const [user, setUser] = useState(data);
+  const [tabIndex, setTabIndex] = useState(0); // Tab state
+  
   const handleTabChange = (event, newValue) => {
     setTabIndex(newValue);
   };
 
+  
+  useEffect(() => {
+  }, [newBasket]);
+
   return (
-    <Box sx={{ display: 'flex', height: '100vh' }}>
+    <Box sx={{ display: "flex", height: "100vh" }}>
       {/* Sidebar Navigation */}
       <Tabs
+      TabIndicatorProps={{
+        style: {
+          backgroundColor: "#935FB2"
+        }
+      }}
         orientation="vertical"
-        variant="scrollable"
-       textColor="inherit"
-        indicatorColor='secondary'
         value={tabIndex}
         onChange={handleTabChange}
-        sx={{ borderRight: 1, borderColor: 'divider' }}
+        sx={{
+          borderRight: 1,
+          borderColor: "divider",
+          color: "primary.main",
+          "& .MuiTab-root.Mui-selected": {
+            color: "text.primary", 
+            fontWeight: "bold",
+            
+          },
+        }}
       >
         <Tab label="מידע אישי" />
         <Tab label="פריטים בסל" />
@@ -54,57 +62,49 @@ const UserDashboard = ({ data }) => {
 
       {/* Tab Content */}
       <Box sx={{ flexGrow: 1, padding: 3 }}>
-        {tabIndex === 0 && (
+        {tabIndex === 3 && (
           <Card sx={{ marginBottom: 3 }}>
             <CardContent>
               <Typography variant="h6" gutterBottom>
                 מידע אישי
               </Typography>
               <Typography variant="body1">
-                שם פרטי: {newData.FirstName}
+                <strong>שם פרטי:</strong> {data.FirstName}
               </Typography>
               <Typography variant="body1">
-                שם משפחה: {newData.LastName}
+                <strong>שם משפחה:</strong> {data.LastName}
               </Typography>
               <Typography variant="body1">
-                דוא"ל: {newData.Email}
+                <strong>דוא"ל:</strong> {data.Email}
               </Typography>
               <Typography variant="body1">
-                טלפון: {newData.Phone}
+                <strong>טלפון:</strong> {data.Phone}
               </Typography>
               <Typography variant="body1">
-                כתובת: {`${newData.Address.Street}, ${newData.Address.City}`}
+                <strong>כתובת:</strong> {`${data.Street}, ${data.City}`}
               </Typography>
               <Typography variant="body1">
-                מספר קומה: {newData.Address.FloorNumber}
+                <strong>מספר קומה:</strong> {data.FloorNumber}
               </Typography>
               <Typography variant="body1">
-                מספר בית/דירה: {newData.Address.HouseApsNumber}
+                <strong>מספר בית/דירה:</strong> {data.HouseApsNumber}
               </Typography>
               <Typography variant="body1">
-                מיקוד: {newData.Address.PostalCode}
+                <strong>מיקוד:</strong> {data.PostalCode}
               </Typography>
             </CardContent>
           </Card>
         )}
+        {tabIndex === 0 && (
+          <>
+          <UserTab data={data} /> 
+          </>
+        )}
 
         {tabIndex === 1 && (
-          <Card>
-            <CardContent>
-              <Typography variant="h6" gutterBottom>
-                פריטים בסל
-              </Typography>
-              {newData.basketItems && newData.basketItems.length > 0 ? (
-                newData.basketItems.map((item, index) => (
-                  <Typography key={index} variant="body1">
-                    {item.name} - כמות: {item.quantity}
-                  </Typography>
-                ))
-              ) : (
-                <Typography variant="body1">אין פריטים בסל.</Typography>
-              )}
-            </CardContent>
-          </Card>
+         <>
+         <BasketTab basket={basket} userId={user.UserId}/>
+         </>
         )}
       </Box>
     </Box>

@@ -16,7 +16,7 @@ function Footer() {
       display:'flex',
       alignItems:'center',
       flexDirection:'row',
-      justifyContent:'space-between'
+      justifyContent:'space-between',
     }}
    >
     <Box sx={{display:'flex', gap: 1, ml: 1}}>

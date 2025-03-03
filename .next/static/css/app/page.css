@@ -1,61 +1,9 @@
 /*!*******************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[5].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[5].use[3]!./src/app/page.module.css ***!
   \*******************************************************************************************************************************************************************************************************************************************************************/
-.page_all_page__no5On{
-    background-color: #000;
-     /* background-image: url(../../public/img/homeGallery/Background.png); */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover; 
-}
-.page_main_container__7Fj6k {
-    /* background-image: url(../../public/img/SkateBoard/SkateBackground.jpg); */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-
-}
-.page_shirts__BkE_g {
-    background-image: url(/_next/static/media/backgroundShirts.1dbff609.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-}
-.page_pants__MfGXt {
-    background-image: url(/_next/static/media/backgroundPants.a45e9aed.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-}
-
-.page_accessories__ife0x{ 
-    background-image: url(/_next/static/media/backgroundAccessories.b30e9aa9.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-}
-.page_woman_box__sxbeu {
-    background-image: url(/_next/static/media/SkateCategory.d98915dd.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    transition: 2s;
-    /* box-sizing: border-box; */
-    /* border: 10px solid #f0e2e1; */
-}
-.page_man_box__obE3x {
-    background: #000;
-    background-image: url(/_next/static/media/accessories.b42b9f03.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    /* box-sizing: border-box; */
-    /* border: 10px solid #f6efef; */
-    transition: 2s;
-
-}
-.page_a__AJ_Ap:hover + .page_b__HPK33 {
-    background: #ccc
+.page_all_page__no5On {
+    overflow-y: hidden;
+    overflow: hidden;
 }
 
 
@@ -186,7 +134,7 @@
   top: 50%;
   transform: translateY(-50%);
   -webkit-transform: translateY(-50%);
-  fill: #935FB2;
+  fill: #070607;
   cursor: pointer;
 }
 
@@ -200,6 +148,81 @@
 }
 
 .arrow--disabled {
-  fill: #945fb27a;
+  /* fill: #8280837a; */
+}
+
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[3]!./components/homePageBrands/HomePageBrands.moudle.css ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************/
+[class^="number-slide"],
+[class*=" number-slide"] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 50px;
+  color: #fff;
+  font-weight: 500;
+  max-height: 100vh;
+  /* background: none; */
+
+}
+
+.number-slide1 {
+  /* border: 1px solid #935FB2; */
+  background: #7b4da1;
+  
+}
+
+.keen-slider{
+  border-radius: 0%;
+}
+
+.number-slide2 {
+  background: rgb(255, 75, 64);
+  background: linear-gradient(
+    128deg,
+    rgba(255, 154, 63, 1) 0%,
+    rgba(255, 75, 64, 1) 100%
+  );
+}
+
+.number-slide3 {
+  background: rgb(182, 255, 64);
+  background: linear-gradient(
+    128deg,
+    rgba(182, 255, 64, 1) 0%,
+    rgba(63, 255, 71, 1) 100%
+  );
+  background: linear-gradient(
+    128deg,
+    rgba(189, 255, 83, 1) 0%,
+    rgba(43, 250, 82, 1) 100%
+  );
+}
+
+.number-slide4 {
+  background: rgb(64, 255, 242);
+  background: linear-gradient(
+    128deg,
+    rgba(64, 255, 242, 1) 0%,
+    rgba(63, 188, 255, 1) 100%
+  );
+}
+
+.number-slide5 {
+  background: rgb(255, 64, 156);
+  background: linear-gradient(
+    128deg,
+    rgba(255, 64, 156, 1) 0%,
+    rgba(255, 63, 63, 1) 100%
+  );
+}
+.number-slide6 {
+  background: rgb(64, 76, 255);
+  background: linear-gradient(
+    128deg,
+    rgba(64, 76, 255, 1) 0%,
+    rgba(174, 63, 255, 1) 100%
+  );
 }
 

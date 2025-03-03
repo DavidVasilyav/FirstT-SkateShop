@@ -33,7 +33,7 @@ function Categories(props : Props) {
           fontSize: 18
         }}
         >
-        Everything for your Skate
+          {/* 🛹 */}
       </Box>
         </Slide>
       <Box
@@ -45,14 +45,16 @@ function Categories(props : Props) {
           // height:'80vh'
         }}
       >
-        <Grid2 key={'container'} container spacing={1} sx={{mb: {xs: 1, sm: 0}}}>
+        <Grid2 key={'container'} container spacing={1} sx={{mb: {xs: 1, sm: 0},
+        width: {sm: 500}
+        }}>
           {props.category.map((oneCategory :any) => (
             <>
             <Fade in={true} timeout={oneCategory.timeout} 
                       > 
               <Grid2
                 item
-                size={{xs: 6, md: 3}}
+                size={{xs: 12, sm: 6}}
                 key={oneCategory.name}
                 sx={{
                   display: "flex",
@@ -63,9 +65,10 @@ function Categories(props : Props) {
                 <Link href={`boards/${oneCategory.name}`}>
                   <Box
                     onTouchStart={() => console.log(123)}
-                    width={200}
-                    height={160}
+                    
                     sx={{
+                      height: {xs: 170, sm: 200},
+                      width: {xs: 250 , sm: 200},
                       border: '3px solid',
                       textAlign:'center',
                       borderColor: 'primary.secondary',
